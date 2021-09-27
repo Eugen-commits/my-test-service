@@ -49,15 +49,6 @@ public class ApplicationConfiguration {
         return new Queue("trip-result");
     }
 
-    @Bean
-    public DataSource getDataSource() {
-        DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.driverClassName("org.postgresql.Driver");
-        dataSourceBuilder.url("jdbc:postgresql://localhost:5432/taxidb?currentSchema=taxi-service");
-        dataSourceBuilder.username("postgres");
-        dataSourceBuilder.password("postgres");
-        return dataSourceBuilder.build();
-    }
 
     @Bean
     public SpringLiquibase liquibase() {
