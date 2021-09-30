@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ru.digitalleague.core.mapper.OrderDetailsMapper">
+    <resultMap id="order" type="ru.digitalleague.core.model.OrderDetails">
+        <id property="clientNumber" column="clientNumber"/>
+        <result property="level" column="level"/>
+        <result property="carModel" column="carModel"/>
+    </resultMap>
+
+    <insert id="createOrder" parameterType="ru.digitalleague.core.model.OrderDetails">
+        insert into orders (clientNumber,level,carModel) values (#{clientNumber},#{level},#{carModel})
+    </insert>
+
+    <select id="getAllOrders" resultMap="order">
+        SELECT clientNumber,level,carModel FROM orders
+    </select>
+
+    <update id="updateByClientNumber" parameterType="ru.digitalleague.core.model.OrderDetails">
+        update orders
+        set level = #{level},
+        carModel = #{carModel}
+        where clientNumber = #{clientNumber}
+    </update>
+    
+    <delete id="delete">
+        delete from orders where clientNumber = #{clientNumber}
+    </delete>
+</mapper>
+

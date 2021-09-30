@@ -6,17 +6,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.digitalleague.core.model.OrderDetails;
-import ru.digitalleague.core.service.OrderDetailsService;
+import ru.digitalleague.core.service.OrderService;
 
 import java.util.List;
 
 @Controller
 @RequestMapping("/orders")
 public class OrderDetailsController {
-    private OrderDetailsService order;
+    private OrderService order;
 
     @Autowired
-    public OrderDetailsController(OrderDetailsService order) {
+    public OrderDetailsController(OrderService order) {
         this.order = order;
     }
 
@@ -29,5 +29,17 @@ public class OrderDetailsController {
     @GetMapping("/all")
     public ResponseEntity<List<OrderDetails>> getAllOrders(){
         return new ResponseEntity<>(order.getAllOrders(),HttpStatus.OK);
+    }
+
+    @PostMapping("/update")
+    public ResponseEntity<HttpStatus> updateOrder (@RequestBody OrderDetails orderDetails){
+        order.updateOrder(orderDetails);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<HttpStatus> delete (@RequestBody OrderDetails orderDetails){
+        order.delete(orderDetails);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

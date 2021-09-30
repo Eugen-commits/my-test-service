@@ -11,9 +11,11 @@ import java.util.List;
 @Repository
 public interface OrderDetailsMapper {
 
-    @Select("select * from orders")
     List <OrderDetails> getAllOrders();
 
-    @Insert("insert into orders (clientNumber,level,carModel) values (#{clientNumber},#{level},#{carModel})")
     void createOrder(OrderDetails orderDetails);
+
+    void updateByClientNumber (OrderDetails orderDetails);
+
+    void delete(OrderDetails orderDetails);
 }
