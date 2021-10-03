@@ -4,7 +4,7 @@ import ru.digitalleague.core.model.OrderDetails;
 
 import java.util.List;
 
-public interface OrderDetailsRepo {
+public interface OrderDetailsService {
     void createOrder(OrderDetails orderDetails);
 
     List<OrderDetails> getAllOrders();

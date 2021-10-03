@@ -4,7 +4,7 @@ import ru.digitalleague.core.model.SearchDriverModel;
 
 import java.util.List;
 
-public interface SearchDriverRepo {
+public interface SearchDriverService {
     void createSearch(SearchDriverModel searchDriverModel);
 
     List<SearchDriverModel> getAllSearch();

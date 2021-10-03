@@ -5,14 +5,15 @@
         <id property="clientNumber" column="clientNumber"/>
         <result property="level" column="level"/>
         <result property="carModel" column="carModel"/>
+        <result property="city" column="city"/>
     </resultMap>
 
     <insert id="createOrder" parameterType="ru.digitalleague.core.model.OrderDetails">
-        insert into orders (clientNumber,level,carModel) values (#{clientNumber},#{level},#{carModel})
+        insert into orders (clientNumber,level,carModel,city) values (#{clientNumber},#{level},#{carModel},#{city})
     </insert>
 
     <select id="getAllOrders" resultMap="order">
-        SELECT clientNumber,level,carModel FROM orders
+        SELECT clientNumber,level,carModel,city FROM orders
     </select>
 
     <update id="updateByClientNumber" parameterType="ru.digitalleague.core.model.OrderDetails">

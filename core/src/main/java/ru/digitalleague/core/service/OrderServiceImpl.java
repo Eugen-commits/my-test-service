@@ -1,7 +1,5 @@
 package ru.digitalleague.core.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,19 +7,19 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 import ru.digitalleague.core.mapper.OrderDetailsMapper;
 import ru.digitalleague.core.model.OrderDetails;
-import ru.digitalleague.core.repository.OrderDetailsRepo;
+import ru.digitalleague.core.repository.OrderDetailsService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @Transactional(isolation = Isolation.REPEATABLE_READ)
-public class OrderService implements OrderDetailsRepo {
+public class OrderServiceImpl implements OrderDetailsService {
     private OrderDetailsMapper mapper;
     private RabbitTemplate template;
 
     @Autowired
-    public OrderService(OrderDetailsMapper mapper, RabbitTemplate template) {
+    public OrderServiceImpl(OrderDetailsMapper mapper, RabbitTemplate template) {
         this.mapper = mapper;
         this.template = template;
     }
@@ -29,15 +27,6 @@ public class OrderService implements OrderDetailsRepo {
     @Override
     public void createOrder(OrderDetails orderDetails){
         mapper.createOrder(orderDetails);
-        ObjectMapper objectMapper = new ObjectMapper();
-        String orderInLine;
-        try {
-            orderInLine = objectMapper.writeValueAsString(orderDetails);
-            template.convertAndSend("order",orderInLine);
-
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
     }
     @Override
     public List<OrderDetails> getAllOrders(){

@@ -3,6 +3,7 @@ package ru.digitalleague.core.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import ru.digitalleague.core.model.TaxiDriverInfoModel;
 
@@ -31,4 +32,7 @@ public interface TaxiInfoMapper {
     void deleteDriver (TaxiDriverInfoModel taxiDriverInfoModel);
 
     void updateDriver (TaxiDriverInfoModel taxiDriverInfoModel);
+
+    @Select("SELECT queue FROM city_queue where name = #{cityName}")
+    String getQueueByCity (String cityName);
 }

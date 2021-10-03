@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.digitalleague.core.model.TaxiDriverInfoModel;
-import ru.digitalleague.core.service.TaxiDriverInfoService;
+import ru.digitalleague.core.service.TaxiDriverInfoServiceImpl;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping ("/driver")
 public class TaxiDriverInfoController {
     @Autowired
-    private TaxiDriverInfoService taxiDriverInfoService;
+    private TaxiDriverInfoServiceImpl taxiDriverInfoService;
 
     @GetMapping("/all")
     public ResponseEntity<List<TaxiDriverInfoModel>> getAllDrivers(){

@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.digitalleague.core.mapper.SearchDriverMapper;
 import ru.digitalleague.core.model.SearchDriverModel;
-import ru.digitalleague.core.repository.SearchDriverRepo;
+import ru.digitalleague.core.repository.SearchDriverService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class SearchDriverService implements SearchDriverRepo {
+public class SearchDriverServiceImpl implements SearchDriverService {
     @Autowired
     private SearchDriverMapper searchDriverMapper;
 

@@ -4,7 +4,7 @@ import ru.digitalleague.core.model.TaxiDriverInfoModel;
 
 import java.util.List;
 
-public interface TaxiDriverInfoRepo {
+public interface TaxiDriverInfoService {
     void createDriverInfo(TaxiDriverInfoModel taxiDriverInfoModel);
 
     List<TaxiDriverInfoModel> getAllDrivers();

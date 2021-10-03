@@ -1,4 +1,4 @@
-package ru.digitalleague.core.model;
+package ru.digitalleague.taxi_company.entity;
 
 import lombok.Data;
 

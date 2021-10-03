@@ -6,23 +6,27 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.digitalleague.core.model.OrderDetails;
-import ru.digitalleague.core.service.OrderService;
+import ru.digitalleague.core.service.OrderServiceImpl;
+import ru.digitalleague.core.service.TaxiServiceImpl;
 
 import java.util.List;
 
 @Controller
 @RequestMapping("/orders")
 public class OrderDetailsController {
-    private OrderService order;
+    private OrderServiceImpl order;
+    private TaxiServiceImpl taxiService;
 
     @Autowired
-    public OrderDetailsController(OrderService order) {
+    public OrderDetailsController(OrderServiceImpl order, TaxiServiceImpl taxiService) {
         this.order = order;
+        this.taxiService = taxiService;
     }
 
     @PostMapping("/create")
     public ResponseEntity<HttpStatus> createOrder (@RequestBody OrderDetails orderDetails){
         order.createOrder(orderDetails);
+        taxiService.notifyTaxi(orderDetails);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
