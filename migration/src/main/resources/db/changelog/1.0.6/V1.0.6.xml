@@ -10,4 +10,16 @@
             <sqlFile path="core/rollback/city_queue_rollback.sql" relativeToChangelogFile="true"/>
         </rollback>
     </changeSet>
+    <changeSet id="07.10.21 11:00" author="ezykin">
+        <sqlFile path="sql/core/user.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="sql/core/rollback/user_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="07.10.21 11:25" author="ezykin">
+        <sqlFile path="sql/core/authority.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="sql/core/rollback/authority_rollback.sql"/>
+        </rollback>
+    </changeSet>
 </databaseChangeLog>

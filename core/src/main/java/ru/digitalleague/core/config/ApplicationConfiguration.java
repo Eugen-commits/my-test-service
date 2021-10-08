@@ -13,9 +13,11 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.retry.annotation.EnableRetry;
 
 @Configuration
 @Slf4j
+@EnableRetry
 public class ApplicationConfiguration {
 
     @Bean

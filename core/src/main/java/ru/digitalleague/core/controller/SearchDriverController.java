@@ -10,7 +10,7 @@ import ru.digitalleague.core.service.SearchDriverServiceImpl;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/search")
 public class SearchDriverController {
     @Autowired
