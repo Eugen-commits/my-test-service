@@ -6,14 +6,16 @@
         <result property="level" column="level"/>
         <result property="carModel" column="carModel"/>
         <result property="city" column="city"/>
+        <result property="startPointAddress" column="startPointAddress"/>
+        <result property="endPointAddress" column="endPointAddress"/>
     </resultMap>
 
     <insert id="createOrder" parameterType="ru.digitalleague.core.model.OrderDetails">
-        insert into orders (clientNumber,level,carModel,city) values (#{clientNumber},#{level},#{carModel},#{city})
+        insert into orders (clientNumber,level,carModel,city,startPointAddress,endPointAddress) values (#{clientNumber},#{level},#{carModel},#{city},#{startPointAddress}, #{endPointAddress})
     </insert>
 
     <select id="getAllOrders" resultMap="order">
-        SELECT clientNumber,level,carModel,city FROM orders
+        SELECT clientNumber,level,carModel,city,startPointAddress,endPointAddress FROM orders
     </select>
 
     <update id="updateByClientNumber" parameterType="ru.digitalleague.core.model.OrderDetails">

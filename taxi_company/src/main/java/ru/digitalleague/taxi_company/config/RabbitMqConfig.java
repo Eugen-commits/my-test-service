@@ -49,7 +49,7 @@ public class RabbitMqConfig {
     }
 
 
-    @Bean
+   /* @Bean
     public MessageListenerContainer messageListenerContainer(ConnectionFactory connectionFactory) {
         SimpleMessageListenerContainer simpleMessageListenerContainer = new SimpleMessageListenerContainer();
         simpleMessageListenerContainer.setConnectionFactory(connectionFactory);
@@ -57,5 +57,5 @@ public class RabbitMqConfig {
         simpleMessageListenerContainer.setQueues(myQueue3());
         simpleMessageListenerContainer.setMessageListener(new OrderListener());
         return simpleMessageListenerContainer;
-    }
+    }*/
 }

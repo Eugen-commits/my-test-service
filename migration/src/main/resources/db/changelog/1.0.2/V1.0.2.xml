@@ -11,4 +11,20 @@
             <sqlFile path="core/rollback/taxi_drive_info_rollback.sql" relativeToChangelogFile="true"/>
         </rollback>
     </changeSet>
+
+    <changeSet id="11.10.21 15:00" author="ezykin">
+        <sqlFile path="sql/core/alter_taxi_driver_info.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="11.10.21 16:00" author="ezykin">
+        <sqlFile path="sql/core/alter_taxi_driver_info_2.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="11.10.21 17:00" author="ezykin">
+        <sqlFile path="sql/core/alter_city_queue.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="11.10.21 19:00" author="ezykin">
+        <sqlFile path="sql/core/alter_taxi_driver_info_3.sql" relativeToChangelogFile="true"/>
+    </changeSet>
 </databaseChangeLog>

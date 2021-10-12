@@ -1,5 +1,6 @@
 package ru.digitalleague.core.controller;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,10 +24,10 @@ public class OrderDetailsController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<HttpStatus> createOrder (@RequestBody OrderDetails orderDetails){
-        order.createOrder(orderDetails);
+    @ApiOperation(value = "Контроллер для заказа такси")
+    public ResponseEntity<String> createOrder (@RequestBody OrderDetails orderDetails){
         taxiService.notifyTaxi(orderDetails);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>("Заказ принят " + orderDetails,HttpStatus.CREATED);
     }
 
     @GetMapping("/all")
