@@ -40,4 +40,7 @@
     <changeSet id="16.10.21 21:00" author="ezykin">
         <sqlFile path="sql/core/alter_orders_price.sql" relativeToChangelogFile="true"/>
     </changeSet>
+    <changeSet id="16.10.21 22:00" author="ezykin">
+        <sqlFile path="sql/core/order_total.sql" relativeToChangelogFile="true"/>
+    </changeSet>
 </databaseChangeLog>

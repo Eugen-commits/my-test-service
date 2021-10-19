@@ -49,8 +49,10 @@ public interface OrderMapper {
     @Select("select end_trip from orders where order_id = #{orderId}")
     OffsetDateTime getEndTrip(OrderDetails orderDetails);
 
-    @Update("update orders set price = #{result} where order_id = #{id}")
+   // @Update("update orders set price = #{result}, where order_id = #{id}")
+    @Insert("insert into order_total (order_id, sum) values (#{id} , #{result})")
     void saveCost(long result, Long id);
+
 
     @Results(id = "orders", value = {
             @Result(property = "orderId", column = "order_id"),
