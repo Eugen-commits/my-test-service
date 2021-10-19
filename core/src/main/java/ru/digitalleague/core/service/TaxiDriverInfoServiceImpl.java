@@ -3,6 +3,7 @@ package ru.digitalleague.core.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.digitalleague.core.mapper.TaxiInfoMapper;
+import ru.digitalleague.core.model.DriverRatingModel;
 import ru.digitalleague.core.model.TaxiDriverInfoModel;
 import ru.digitalleague.core.repository.TaxiDriverInfoService;
 

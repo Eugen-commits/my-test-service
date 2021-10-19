@@ -1,0 +1,1 @@
+alter table taxiservice.orders add column if not exists price bigint;

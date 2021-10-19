@@ -27,4 +27,17 @@
     <changeSet id="11.10.21 19:00" author="ezykin">
         <sqlFile path="sql/core/alter_taxi_driver_info_3.sql" relativeToChangelogFile="true"/>
     </changeSet>
+
+    <changeSet id="15.10.21 16:00" author="ezykin">
+        <sqlFile path="sql/core/alter_taxi_driver_info_4.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    <changeSet id="16.10.21 16:00" author="ezykin">
+        <sqlFile path="sql/core/alter_taxi_driver_info_5.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    <changeSet id="16.10.21 19:00" author="ezykin">
+        <sqlFile path="sql/core/rating_info.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    <changeSet id="16.10.21 21:00" author="ezykin">
+        <sqlFile path="sql/core/alter_orders_price.sql" relativeToChangelogFile="true"/>
+    </changeSet>
 </databaseChangeLog>
